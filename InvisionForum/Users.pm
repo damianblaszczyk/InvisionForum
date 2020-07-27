@@ -105,7 +105,7 @@ sub new
 
 	my $self = 
 	{
-		_domain 	=> shift,
+		_domain		=> shift,
 		_ua			=> 'Mozilla/5.0',
 	};
 
