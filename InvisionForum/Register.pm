@@ -19,7 +19,7 @@ BEGIN
 
 my $_requestregister = sub
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my $csrfkey;
 
@@ -72,17 +72,17 @@ my $_requestregister = sub
 		form_number => 1,
 		fields      => 
 		{
-			form_submitted					=> 1,
-			csrfKey 						=> $csrfkey,
-			captcha_field					=> 1,
-			username						=> $_[1],
-			email_address					=> $_[3],
-			password						=> $_[2],
-			password_confirm				=> $_[2],
-			'g-recaptcha-response'			=> $_[0],
-			reg_admin_mails					=> 0,
-			reg_agreed_terms				=> 0,
-			reg_agreed_terms_checkbox		=> 1,
+			form_submitted			=> 1,
+			csrfKey 			=> $csrfkey,
+			captcha_field			=> 1,
+			username			=> $_[1],
+			email_address			=> $_[3],
+			password			=> $_[2],
+			password_confirm		=> $_[2],
+			'g-recaptcha-response'		=> $_[0],
+			reg_admin_mails			=> 0,
+			reg_agreed_terms		=> 0,
+			reg_agreed_terms_checkbox	=> 1,
 		}
 	);
 
@@ -116,14 +116,14 @@ my $_requestregister = sub
 
 sub new
 {
-	my $class 	= shift;
+	my $class = shift(@_);
 
 	my $self = 
 	{
 		_domain 	=> shift,
 		_antikey 	=> shift,
 		_gkey		=> shift,
-		_ua			=> 'Mozilla/5.0',
+		_ua		=> 'Mozilla/5.0',
 	};
 
 	for (keys % { $self })
@@ -136,14 +136,14 @@ sub new
 
 sub debug
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_debug} = $_[0];
 }
 
 sub proxy
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_proxyhost} = $_[0];
 	$self->{_proxyport} = $_[1];
@@ -151,14 +151,14 @@ sub proxy
 
 sub ua
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_ua} = $_[0];
 }
 
 sub register
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my $captcha;
 	my $task;
