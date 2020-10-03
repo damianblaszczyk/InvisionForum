@@ -19,7 +19,7 @@ BEGIN
 
 my $_printdebug = sub
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	print 
 		"[+] " . $self->{_searchlink} . "" .
@@ -28,7 +28,7 @@ my $_printdebug = sub
 
 my $_cfdecode = sub
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my $k;
 	my $i;
@@ -48,7 +48,7 @@ my $_cfdecode = sub
 
 my $_cleanuser = sub
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	$_[0] = $self->$_cfdecode($_[0]) 
 		if (index($_[0], 'data-cfemail') != -1);
@@ -59,7 +59,7 @@ my $_cleanuser = sub
 
 my $_getuserlist = sub
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my @users;
 
@@ -101,12 +101,12 @@ my $_getuserlist = sub
 
 sub new
 {
-	my $class 	= shift;
+	my $class = shift(@_);
 
 	my $self = 
 	{
 		_domain		=> shift,
-		_ua			=> 'Mozilla/5.0',
+		_ua		=> 'Mozilla/5.0',
 	};
 
 	for (keys % { $self })
@@ -118,21 +118,21 @@ sub new
 
 sub debug
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_debug} = $_[0];
 }
 
 sub sparam
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_searchlink} = $_[0];
 }
 
 sub proxy
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_proxyhost} = $_[0];
 	$self->{_proxyport} = $_[1];
@@ -140,14 +140,14 @@ sub proxy
 
 sub ua
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_ua} = $_[0];
 }
 
 sub downloadusers
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	my @param;
 
