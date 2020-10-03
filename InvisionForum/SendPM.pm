@@ -19,7 +19,7 @@ BEGIN
 
 my $_sendmessage = sub 
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	my @messages;
 
@@ -93,12 +93,12 @@ my $_sendmessage = sub
 		$self->{_domain} . "/messenger/compose/",
 		content =>
 		{
-			messenger_content			=> $_[2],
-			form_submitted				=> 1,
-			csrfKey 					=> $csrfkey,
-			messenger_to_original		=> '',
-			messenger_to				=> $_[0],
-			messenger_title				=> $_[1],
+			messenger_content	=> $_[2],
+			form_submitted		=> 1,
+			csrfKey 		=> $csrfkey,
+			messenger_to_original	=> '',
+			messenger_to		=> $_[0],
+			messenger_title		=> $_[1],
 		}
 	);
 
@@ -129,7 +129,7 @@ my $_sendmessage = sub
 
 my $_login = sub
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	my $csrfkey;
 
@@ -179,12 +179,12 @@ my $_login = sub
 		$self->{_domain} . "/login/",
 		content =>
 		{
-			auth						=> $_[0],
-			password					=> $_[1],
-			remember_me					=> 0,
-			signin_anonymous			=> 0,
-			_processLogin 				=> 'usernamepassword',
-			csrfKey 					=> $csrfkey,
+			auth			=> $_[0],
+			password		=> $_[1],
+			remember_me		=> 0,
+			signin_anonymous	=> 0,
+			_processLogin 		=> 'usernamepassword',
+			csrfKey 		=> $csrfkey,
 		}
 	);	
 
@@ -194,11 +194,11 @@ my $_login = sub
 	#	form_number => 1,
 	#	fields      => 
 	#	{
-	#		auth						=> $_[0],
-	#		password					=> $_[1],
-	#		remember_me					=> 0,
+	#		auth				=> $_[0],
+	#		password			=> $_[1],
+	#		remember_me			=> 0,
 	#		remember_me_checkbox		=> 1,
-	#		signin_anonymous			=> 0,
+	#		signin_anonymous		=> 0,
 	#		signin_anonymous_checkbox	=> 1,
 	#	}
 	#);
@@ -231,12 +231,12 @@ my $_login = sub
 
 sub new
 {
-	my $class 	= shift;
+	my $class = shift(@_);
 
 	my $self = 
 	{
 		_domain 	=> shift,
-		_ua			=> 'Mozilla/5.0',		
+		_ua		=> 'Mozilla/5.0',		
 	};
 
 	for (keys % { $self })
@@ -249,14 +249,14 @@ sub new
 
 sub debug
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_debug} = $_[0];
 }
 
 sub proxy
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_proxyhost} = $_[0];
 	$self->{_proxyport} = $_[1];
@@ -264,14 +264,14 @@ sub proxy
 
 sub ua
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 
 	$self->{_ua} = $_[0];
 }
 
 sub sendpm
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my $res;
 
