@@ -59,7 +59,7 @@ my $_request = sub
 		die "Request message problem";
 	}
 
-	print Dumper(\$rcvit) if $self->{_dump};
+	print Dumper( \$rcvit ) if $self->{_dump};
 
 	return $rcvit;
 };
@@ -70,12 +70,12 @@ my $_request = sub
 
 sub new
 {
-	my $class 	= shift(@_);
+	my $class = shift(@_);
 
 	my $self = 
 	{
-		_apikey 	=> shift(@_),
-		_url		=> 'http://api.anti-captcha.com',
+		_apikey => shift(@_),
+		_url	=> 'http://api.anti-captcha.com',
 	};
 
 	for (keys % { $self })
@@ -88,13 +88,13 @@ sub new
 
 sub setdebug
 {
-	my $self		= shift(@_);
+	my $self = shift(@_);
 	$self->{_dump} 	= $_[0];
 }
 
 sub setopt
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	delete $self->{opt};
 
@@ -104,7 +104,7 @@ sub setopt
 
 sub createtask 
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -113,9 +113,9 @@ sub createtask
 		clientKey	=> $self->{_apikey},
 		task 		=> 
 		{
-				type 			=> $self->{_type},
-				websiteURL		=> $self->{_domain},
-				websiteKey		=> $self->{_keysite},
+			type 		=> $self->{_type},
+			websiteURL	=> $self->{_domain},
+			websiteKey	=> $self->{_keysite},
 		},
 	);
 
@@ -127,7 +127,7 @@ sub createtask
 
 sub checktask
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -142,13 +142,13 @@ sub checktask
 
 sub getbalance
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
 	%sendit =
 	(
-		clientKey	=> $self->{_apikey},
+		clientKey 	=> $self->{_apikey},
 	);
 
 	$self->$_request('/getBalance', \%sendit);
@@ -156,13 +156,13 @@ sub getbalance
 
 sub queuestats
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
 	%sendit =
 	(
-		queueId	=> $_[0],
+		queueId		=> $_[0],
 	);
 
 	$self->$_request('/getQueueStats', \%sendit);	
@@ -170,7 +170,7 @@ sub queuestats
 
 sub reportIncorrectimagecaptcha
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -185,7 +185,7 @@ sub reportIncorrectimagecaptcha
 
 sub reportincorrectrecaptcha
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -200,7 +200,7 @@ sub reportincorrectrecaptcha
 
 sub getspendingstats
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -217,7 +217,7 @@ sub getspendingstats
 
 sub getappstats
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -234,7 +234,7 @@ sub getappstats
 
 sub sendfunds
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my %sendit;
 
@@ -251,7 +251,7 @@ sub sendfunds
 
 sub waittask
 {
-	my $self	= shift(@_);
+	my $self = shift(@_);
 
 	my $time;
 	my $res;
@@ -308,7 +308,7 @@ version 1.00
 		$captcha = new AntiCaptcha
 		(
 			# Your API key
-			"93009f2243ae3c7a8c8wb9gbw3deg09f",
+			"93079f5443ae3c7a8c8wb9gbw3deg09f",
 		);
 
 		# Print JSON response live in console
